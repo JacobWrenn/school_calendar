@@ -159,7 +159,6 @@
 				7398B0A62725A9E5E156352A /* Pods-Runner.release.xcconfig */,
 				F9A17FD3E45155774677A625 /* Pods-Runner.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -426,6 +425,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.wrenn.schoolCalendar;
 				PRODUCT_NAME = "School Calendar";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -554,6 +554,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.wrenn.schoolCalendar;
 				PRODUCT_NAME = "School Calendar";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -576,6 +577,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.wrenn.schoolCalendar;
 				PRODUCT_NAME = "School Calendar";
 				PROVISIONING_PROFILE_SPECIFIER = "";

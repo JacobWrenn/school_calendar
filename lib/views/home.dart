@@ -1,6 +1,7 @@
 import 'package:apple_eventkit/apple_eventkit.dart';
 import 'package:flutter/material.dart';
 import 'package:school_calendar/constants.dart';
+import 'package:school_calendar/views/existing.dart';
 import 'package:school_calendar/views/new/new.dart';
 
 class Home extends StatefulWidget {
@@ -54,8 +55,17 @@ class _HomeState extends State<Home> {
                 children: [
                   TextButton(
                     style: button,
-                    onPressed: () {},
-                    child: Text("Edit Existing Timetables"),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Existing();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text("Existing Timetables"),
                   ),
                   SizedBox(width: 32),
                   TextButton(
