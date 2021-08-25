@@ -20,12 +20,12 @@ class _NewState extends State<New> {
   bool spinning = false;
 
   Future saveToCalendar(String name, DateTime start, DateTime end,
-      String calendarId, List<Calendar> calendars) async {
+      String calendarId, List<Calendar> calendars, bool reverse) async {
     setState(() {
       spinning = true;
     });
     await CalendarSaver()
-        .save(name, start, end, calendarId, calendars, weeks, true);
+        .save(name, start, end, calendarId, calendars, weeks, true, reverse);
     setState(() {
       spinning = false;
     });
@@ -159,12 +159,9 @@ class _NewState extends State<New> {
                                           String calendarId,
                                           List<Calendar> calendars,
                                           bool reverse) async {
-                                        if (reverse) {
-                                          weeks = weeks.reversed.toList();
-                                        }
                                         Navigator.pop(context);
                                         saveToCalendar(name, start, end,
-                                            calendarId, calendars);
+                                            calendarId, calendars, reverse);
                                       },
                                       true,
                                     );

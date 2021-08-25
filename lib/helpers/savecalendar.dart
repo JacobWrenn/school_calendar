@@ -29,13 +29,24 @@ class CalendarSaver {
     return 0;
   }
 
-  Future save(String name, DateTime start, DateTime end, String calendarId,
-      List<Calendar> calendars, List<Week> weeks, bool saveJson) async {
+  Future save(
+      String name,
+      DateTime start,
+      DateTime end,
+      String calendarId,
+      List<Calendar> calendars,
+      List<Week> weeks,
+      bool saveJson,
+      bool reverse) async {
     final directory = await getApplicationDocumentsDirectory();
     final json = jsonEncode(weeks);
     if (saveJson) {
-      File('${directory.path}/$name###${DateTime.now().toIso8601String()}.json')
+      await File(
+              '${directory.path}/$name###${DateTime.now().toIso8601String()}.json')
           .writeAsString(json);
+    }
+    if (reverse) {
+      weeks = weeks.reversed.toList();
     }
     final int interval = weeks.length;
     if (start.weekday > 5) {
