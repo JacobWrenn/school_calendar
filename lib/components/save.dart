@@ -23,6 +23,7 @@ class _SaveState extends State<Save> {
   bool saveEnabled = false;
   String calendarSource = "";
   String calendarId = "";
+  bool reverse = false;
 
   _SaveState(this.done, this.takeName);
 
@@ -153,13 +154,28 @@ class _SaveState extends State<Save> {
                 ),
             ],
           ),
+          SizedBox(height: 16),
+          Row(
+            children: [
+              Text("Reverse Week Order"),
+              Checkbox(
+                value: reverse,
+                onChanged: (value) {
+                  setState(() {
+                    reverse = value ?? true;
+                  });
+                },
+              ),
+            ],
+          ),
         ],
       ),
       actions: [
         TextButton(
           onPressed: (saveEnabled)
               ? () {
-                  done(controller.text, start, end, calendarId, calendars);
+                  done(controller.text, start, end, calendarId, calendars,
+                      reverse);
                 }
               : null,
           child: Text("Save"),

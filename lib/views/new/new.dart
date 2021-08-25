@@ -157,7 +157,11 @@ class _NewState extends State<New> {
                                           DateTime start,
                                           DateTime end,
                                           String calendarId,
-                                          List<Calendar> calendars) async {
+                                          List<Calendar> calendars,
+                                          bool reverse) async {
+                                        if (reverse) {
+                                          weeks = weeks.reversed.toList();
+                                        }
                                         Navigator.pop(context);
                                         saveToCalendar(name, start, end,
                                             calendarId, calendars);
