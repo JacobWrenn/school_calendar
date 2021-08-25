@@ -158,6 +158,7 @@ class _SaveState extends State<Save> {
           Row(
             children: [
               Text("Reverse Week Order"),
+              Spacer(),
               Checkbox(
                 value: reverse,
                 onChanged: (value) {
