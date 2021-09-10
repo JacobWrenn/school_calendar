@@ -38,6 +38,7 @@ class CalendarSaver {
       List<Week> weeks,
       bool saveJson,
       bool reverse) async {
+    end = end.add(Duration(days: 1));
     final directory = await getApplicationDocumentsDirectory();
     final json = jsonEncode(weeks);
     if (saveJson) {
@@ -111,13 +112,15 @@ class CalendarSaver {
       endDate =
           endDate.add(Duration(minutes: period.end.minute - endDate.minute));
     }
-    await AppleEventkit().createEvent(
-        period.filledName,
-        f.format(targetDay),
-        f.format(endDate),
-        calendarId,
-        interval.toString(),
-        f.format(end),
-        period.location);
+    if (period.filledName != "") {
+      await AppleEventkit().createEvent(
+          period.filledName,
+          f.format(targetDay),
+          f.format(endDate),
+          calendarId,
+          interval.toString(),
+          f.format(end),
+          period.location);
+    }
   }
 }
